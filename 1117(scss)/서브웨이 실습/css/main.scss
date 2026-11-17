@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+@import 'common';
+
+/* main.scss */
+main{
+  padding:0px 0px 120px 0px;
+  >.tab_mnu{
+    padding:20px 0px;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    >ul{text-align:center;
+      >li{
+        display:inline-block;
+        > a{
+          position:relative;
+          font:{
+            size:1rem;
+            weight: bold;
+          }
+          padding:0px 14px;
+          color:$txt_color1;
+          &.act{
+            color:$main_color01 !important;
+          }
+          &.act::after{
+            content:'';
+            display:inline-block;
+            width:90%;
+            height:4px;
+            background:$main_color01;
+            position:absolute;
+            left:50%;
+            transform:translateX(-50%);
+            bottom:-20px;
+          }
+        }
+      }
+      >li::after{
+        content:'\2022';
+        color:$txt_color1;
+      }
+      >li:last-child::after{
+        display:none;
+      }
+    }
+  }
+
+  // 탭콘텐츠 서식
+  .tab_con{
+    width:$max-width;
+    margin:$box_center;  
+    > section:not(:first-child){
+      display:none;
+    }
+    > .cont{
+      >h2{
+        font-size:30px;
+        text-align:center;
+        padding:50px 0px;
+      }
+    }
+  }
+
+  // FAQ스타일 서식
+  .faq_list {
+    border-top: 2px solid #009223;
+    > dt {
+      padding: 20px;
+      border-bottom: 1px solid #e5e5e5;
+      font:{
+        weight: bold;
+        size: 17px;
+      }
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      > i{
+        color: #009223;
+        transition: transform 0.3s;
+      }
+      &.act i{
+        transform: rotate(45deg); /* + 아이콘이 x 모양으로 회전 */
+      }
+    }
+    > dd{
+        display: none;
+        padding: 25px 20px;
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #e5e5e5;
+        color: #555;
+        line-height: 1.6;
+      }
+  }
+
+
+}

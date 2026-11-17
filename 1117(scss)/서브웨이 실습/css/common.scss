@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+//common.scss
+//1. 변수선언
+$max_width:1170px;
+$box_center:0 auto;
+$main_color01:#009223;
+$main_color02:#ffce32;
+$bg_color01:#333;
+$txt_color1:#7c7c7c;
+$base_fontSize:12px;
+
+*{margin: 0px;padding:0px;}
+ul,li{list-style:none;}
+a{
+  text-decoration: none;
+  color:$bg_color01;
+}
+body{
+  font:{
+    family:'맑은 고딕', Arial, Helvetica, sans-serif;
+    weight:normal;
+    size:16px;
+  }
+  color:$bg_color01;
+}
+
+// 글자에 투명도 적용을 위한 함수
+@function my_lighten($num){
+  @return 0.1*$num;
+}
+
+// 헤더서식
+header{
+  border-top:5px solid $main_color01;
+  height:150px;
+  text-align:center;
+  > h1{
+    padding:20px 0px;
+    img{width:190px;}
+  }
+}
+
+// 푸터서식
+footer{
+  background:$bg_color01;
+  > ul.f_lnb{
+    width:$max_width;
+    margin:$box_center;
+    display: flex;
+    justify-content: left;
+    >li{
+      line-height: 50px;
+      margin:0px 10px;
+      > a{
+        color:rgba(255,255,255, my_lighten(3));
+      }
+    }
+  }
+  address{
+    width:$max_width;
+    margin:$box_center;
+    color:rgba(255,255,255, my_lighten(3));
+    font:{
+      size:14px;
+      style:normal;
+    }
+  }
+}
+
+//f_lnb의 두번째 글자만 밝게
+.f_lnb li:nth-child(2) a{
+  color:rgba(255,255,255, my_lighten(9));
+}

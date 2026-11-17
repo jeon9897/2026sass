@@ -1,0 +1,145 @@
+@charset "UTF-8";
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+body {
+  font-family: "맑은 고딕", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  color: #333;
+}
+
+header {
+  border-top: 5px solid #009223;
+  height: 150px;
+  text-align: center;
+}
+header > h1 {
+  padding: 20px 0px;
+}
+header > h1 img {
+  width: 190px;
+}
+
+footer {
+  background: #333;
+}
+footer > ul.f_lnb {
+  width: 1170px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: left;
+}
+footer > ul.f_lnb > li {
+  line-height: 50px;
+  margin: 0px 10px;
+}
+footer > ul.f_lnb > li > a {
+  color: rgba(255, 255, 255, 0.3);
+}
+footer address {
+  width: 1170px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 14px;
+  font-style: normal;
+}
+
+.f_lnb li:nth-child(2) a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* main.scss */
+main {
+  padding: 0px 0px 120px 0px;
+}
+main > .tab_mnu {
+  padding: 20px 0px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+main > .tab_mnu > ul {
+  text-align: center;
+}
+main > .tab_mnu > ul > li {
+  display: inline-block;
+}
+main > .tab_mnu > ul > li > a {
+  position: relative;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0px 14px;
+  color: #7c7c7c;
+}
+main > .tab_mnu > ul > li > a.act {
+  color: #009223 !important;
+}
+main > .tab_mnu > ul > li > a.act::after {
+  content: "";
+  display: inline-block;
+  width: 90%;
+  height: 4px;
+  background: #009223;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -20px;
+}
+main > .tab_mnu > ul > li::after {
+  content: "•";
+  color: #7c7c7c;
+}
+main > .tab_mnu > ul > li:last-child::after {
+  display: none;
+}
+main .tab_con {
+  width: 1170px;
+  margin: 0 auto;
+}
+main .tab_con > section:not(:first-child) {
+  display: none;
+}
+main .tab_con > .cont > h2 {
+  font-size: 30px;
+  text-align: center;
+  padding: 50px 0px;
+}
+main .faq_list {
+  border-top: 2px solid #009223;
+}
+main .faq_list > dt {
+  padding: 20px;
+  border-bottom: 1px solid #e5e5e5;
+  font-weight: bold;
+  font-size: 17px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .faq_list > dt > i {
+  color: #009223;
+  transition: transform 0.3s;
+}
+main .faq_list > dt.act i {
+  transform: rotate(45deg); /* + 아이콘이 x 모양으로 회전 */
+}
+main .faq_list > dd {
+  display: none;
+  padding: 25px 20px;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #e5e5e5;
+  color: #555;
+  line-height: 1.6;
+}/*# sourceMappingURL=main.css.map */
