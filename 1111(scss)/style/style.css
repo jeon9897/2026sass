@@ -1,11 +1,20 @@
 :root {
-  --t_color:#0f0;
+  --t_color:rgb(163, 255, 163);
+}
+
+body {
+  color: #333;
+}
+
+h2 {
+  color: rgb(24, 81, 203);
+}
+
+pre {
+  background: #ffffbc;
 }
 
 h3 {
   background: var(--t_color);
-}
-
-body {
-  color: #f00;
+  line-height: 50px;
 }/*# sourceMappingURL=style.css.map */

@@ -1,11 +1,19 @@
 
-:root{--t_color:#0f0;}
-
-h3{background:var(--t_color);}
+:root{--t_color:rgb(163, 255, 163);}
 
 //scss변수생성
-$t_color1:#f00;
+$t_color_base:#333;
+$t_color1:rgb(24, 81, 203);
+$bg_color:#ffffbc;
 
-body{
-  color:$t_color1;
+//scss변수 적용
+body{color:$t_color_base;}
+h2{color:$t_color1;}
+pre{background:$bg_color;}
+
+
+// css변수 적용
+h3{
+  background:var(--t_color);
+  line-height:50px;
 }

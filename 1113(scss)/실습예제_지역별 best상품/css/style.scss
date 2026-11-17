@@ -1,0 +1,212 @@
+@charset "utf-8";
+
+/* 공통 초기화 및 변수 설정 */
+$primary-color: #0078ff; // 타이틀 배경색 등 포인트 컬러
+$text-main: #333;
+$text-sub: #666;
+$price-color: #e52528;
+$border-color: #eaeaea;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: $text-main;
+  background-color: #f9f9f9;
+}
+
+/* 지역별 BEST 상품 섹션 스타일 */
+.best_products {
+  padding: 60px 20px;
+
+  .inner {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    /* 섹션 타이틀 */
+    .title {
+      background-color: #3b7ab8; // 이미지 상단 파란색 바 배경
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      letter-spacing: -1px;
+    }
+
+    /* 레이아웃 구조 (좌우 2분할 플렉스) */
+    .product_container {
+      display: flex;
+      gap: 30px;
+
+      @media (max-width: 960px) {
+        flex-direction: column;
+      }
+
+      /* [좌측] 메인 상품 영역 */
+      .product_main {
+        flex: 1;
+        background: #fff;
+        border: 1px solid $border-color;
+        display: flex;
+        flex-direction: column;
+
+        a {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        .img_box {
+          width: 100%;
+          height: 420px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+          }
+        }
+
+        &:hover .img_box img {
+          transform: scale(1.03);
+        }
+
+        .info_box {
+          padding: 25px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          flex-grow: 1;
+
+          .desc {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.5;
+            color: $text-main;
+            margin-bottom: 20px;
+          }
+
+          .price {
+            text-align: right;
+            font-size: 14px;
+            color: $text-sub;
+
+            strong {
+              font-size: 22px;
+              color: $price-color;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+
+      /* [우측] 서브 상품 리스트 영역 */
+      .product_sub_list {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .sub_item {
+          background: #fff;
+          border: 1px solid $border-color;
+          transition: box-shadow 0.2s ease;
+
+          &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+          }
+
+          a {
+            display: flex;
+            padding: 15px;
+            gap: 20px;
+            align-items: center;
+
+            @media (max-width: 500px) {
+              flex-direction: column;
+              align-items: flex-start;
+            }
+          }
+
+          .img_box {
+            width: 180px;
+            height: 110px;
+            flex-shrink: 0;
+            overflow: hidden;
+
+            @media (max-width: 500px) {
+              width: 100%;
+              height: 160px;
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: transform 0.3s ease;
+            }
+          }
+
+          &:hover .img_box img {
+            transform: scale(1.05);
+          }
+
+          .info_box {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .desc {
+              font-size: 14px;
+              font-weight: 600;
+              color: $text-main;
+              line-height: 1.4;
+              margin-bottom: 5px;
+            }
+
+            .sub_desc {
+              font-size: 12px;
+              color: $text-sub;
+              line-height: 1.3;
+              margin-bottom: 8px;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+            }
+
+            .price {
+              text-align: right;
+              font-size: 13px;
+              color: $text-sub;
+
+              strong {
+                font-size: 18px;
+                color: $price-color;
+                font-weight: 700;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
