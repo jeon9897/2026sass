@@ -1,0 +1,6 @@
+웹개발시 이름 짓는 방법
+1. camelCase => 예) colorPrimaryLight 주로 자바스크립트에서 사용. 첫 단어 소문자로 시작
+2. PascalCase => 예) ColorPrimaryLight 클래스나 객체 이름에 사용 (잘 사용되지 않음)
+3. snake_case => 예) color_primary_light 언더스코어(_)를 사용. JSON에서는 잘 쓰이지 않음
+4. Kebab-case => 예) color-primary-light CSS변수(--color-primary-light), JSON키에서 자주 사용
+5. dot.notation => 예) color.primary.light 자바스크립트에서 객체로 접근 가능 token["color.primary.light"]

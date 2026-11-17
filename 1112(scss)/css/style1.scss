@@ -1,0 +1,109 @@
+@charset "utf-8";
+//style1.scss
+
+//변수선언
+$bg_color:#ffff00;
+$bg_color_m:rgb(95, 0, 128);
+$bg_color_g:#333;
+
+$txt_color1:#ff0000;
+$txt_color2:#002fff;
+$txt_color_w:#ffffff;
+
+$border01:2px solid #000;
+
+$line_color_g:#cccccc; //선스타일
+
+@mixin h3txt{ /* 제목서식 */
+  color:$txt_color1;
+  background:$bg_color;
+}
+
+.title01{
+  @include h3txt;
+}
+.title02{
+  @include h3txt;//이미 글자색 존재
+  color:$txt_color2;//아래 글자색 서식이 적용됨
+  // background:$bg_color;
+}
+.title01:hover, .title02:hover{
+  border:$border01;
+}
+
+// 실습1. 글자 생략기호(...) 나오게 하는 서식
+@mixin txt_over{
+  overflow:hidden; /* 영역을 벗어나면 숨기기 */
+  white-space:nowrap;/* 글자를 무조건 한줄로 */
+  text-overflow:ellipsis;/* 생략기호 나오게 */
+}
+.p01{
+  width:350px;
+  border:1px solid #f00;
+  background:$bg_color;
+  @include txt_over;
+}
+
+
+//1. 버튼 글자서식
+@mixin btnFont{
+  font-family: "Noto Sans";
+  font-weight:bold;
+  font-size:20px;
+}
+
+//2. 버튼 모양서식
+@mixin btnArea{
+  border:1px solid $line_color_g;
+  padding:0px 10px;
+  width:170px;height:56px;
+}
+
+//3. 버튼 서식을 합치기
+@mixin btn{
+  @include btnFont; //글자서식
+  @include btnArea; //버튼서식
+}
+
+.resest_btn{@include btn;}
+.cart_btn{
+  @include btn;
+  background:$bg_color_m;
+  color:$txt_color_w;
+}
+
+// 토글버튼 서식
+@mixin toggle_btn{
+  width:40px;height:40px;
+  display:block;  
+  border:1px solid $line_color_g;
+  position:relative;
+}
+@mixin bar{
+  position:absolute;	display:inline-block;
+	width:38px;height:3px;
+  left:1px;
+	background:$bg_color_g;
+}
+// bar버튼서식
+.toggle_btn, .toggle{@include toggle_btn;}
+
+$time:0.3s; //시간변수
+
+//bar 공통서식 
+.bar{@include bar;transition:$time;}
+
+//bar 개별 서식
+.bar1, .toggle span:first-child{top:5px;}
+.bar2, .toggle span:nth-child(2){top:18px;}
+.bar3, .toggle span:last-child{bottom:5px;}
+
+// css로 토글버튼 구현
+#toggle:checked + label > .bar1{transform:rotate(45deg) translate(10px, 10px)};
+#toggle:checked + label > .bar2{display:none;}
+#toggle:checked + label > .bar3{transform:rotate(-45deg) translate(10px, -10px)};
+
+// 2번 클래스명 추가/삭제 
+.act_toggle1{transform:rotate(45deg) translate(10px, 10px);}
+.act_toggle2{display:none;}
+.act_toggle3{transform:rotate(-45deg) translate(10px, -10px);}

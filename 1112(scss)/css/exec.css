@@ -1,0 +1,28 @@
+ul, li {
+  list-style: none;
+}
+
+.promotion * {
+  padding: 0px;
+  margin: 0px;
+}
+
+.promotion {
+  width: 1200px;
+  margin: 0px auto;
+  border: 1px solid #333;
+}
+
+.promotion ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.promotion ul li {
+  width: 23%;
+  margin: 1%;
+}
+
+.promotion img {
+  width: 100%;
+}/*# sourceMappingURL=exec.css.map */

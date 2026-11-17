@@ -1,0 +1,40 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul, li {
+  list-style: none;
+}
+
+#product {
+  width: 1000px;
+  margin: 0px auto;
+  border: 1px solid #f00;
+}
+
+#product .cont_list {
+  box-sizing: border-box;
+  height: 400px;
+}
+
+#product .cont_list::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+#product .cont_list li:first-child {
+  width: 600px;
+  height: 400px;
+  background: #98c898;
+  float: left;
+}
+
+#product .cont_list li {
+  width: 400px;
+  height: 127px;
+  background: #00ff00;
+  margin-bottom: 10px;
+  float: right;
+}/*# sourceMappingURL=exec_style.css.map */

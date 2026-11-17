@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+ul, li{list-style:none;}
+//변수선언
+//자주 사용하는 값, 변경될 값 
+$box_center:0px auto;
+$base_width:1200px;
+
+//exec.sass
+.promotion *{padding:0px;margin:0px;}
+.promotion{
+  width:$base_width;
+  margin:$box_center;
+  border:1px solid #333;
+}
+.promotion ul{
+  display:flex;
+  justify-content: space-around;
+}
+.promotion ul li{
+  width:23%;margin:1%;
+}
+.promotion img{width:100%;}
+
+//0. show more서식
+
+//1. '배지' 서식
+
+//2. '이미지 마우스' 오버 서식
+
+//3. 제목서식
+
+//4. 'read more' 서식

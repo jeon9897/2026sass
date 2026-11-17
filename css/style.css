@@ -1,0 +1,314 @@
+@charset "UTF-8";
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+/* =========================================
+   1. CSS Variables (Sass Brand Theme)
+   ========================================= */
+:root {
+  --sass-pink: #cf649a;
+  --sass-pink-dark: #b34b80;
+  --sass-pink-light: #fdf2f8;
+  --sass-pink-border: #fbcfe8;
+  
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border-color: #e2e8f0;
+  
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 24px rgba(207, 100, 154, 0.12);
+  --radius-lg: 16px;
+  --radius-md: 10px;
+}
+
+/* =========================================
+   2. Reset & Base Styles
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* 은은한 도트 패턴 배경 */
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* =========================================
+   3. Header (Hero Banner)
+   ========================================= */
+header {
+  background: linear-gradient(135deg, #2b192e 0%, #4a2142 50%, var(--sass-pink-dark) 100%);
+  color: #ffffff;
+  padding: 64px 20px 76px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(43, 25, 46, 0.15);
+}
+
+/* 장식용 기호 워터마크 */
+header::before {
+  content: "$scss { @mixin }";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: -2px;
+}
+
+header h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header h1::before {
+  content: "SCSS";
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: var(--sass-pink);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+}
+
+header p {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: #f1d5e4;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 400;
+  position: relative;
+}
+
+/* =========================================
+   4. Main Content (Curriculum Cards)
+   ========================================= */
+main {
+  width: 100%;
+  max-width: 880px;
+  margin: -36px auto 60px;
+  padding: 0 20px;
+  flex: 1;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+dl {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 카드 좌측 포인트 라인 */
+dl::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background-color: var(--sass-pink);
+  opacity: 0.85;
+}
+
+dl:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--sass-pink-border);
+}
+
+/* 일차 제목 (dt) */
+dt {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: -0.02em;
+}
+
+dt::before {
+  content: "#";
+  color: var(--sass-pink);
+  font-family: 'Consolas', monospace;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+/* 세부 학습 목록 (dd) */
+dd {
+  margin-bottom: 10px;
+}
+
+dd:last-child {
+  margin-bottom: 0;
+}
+
+dd a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 18px;
+  background-color: var(--bg-page);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+dd a::before {
+  content: "📄";
+  margin-right: 10px;
+  font-size: 1rem;
+  filter: grayscale(0.3);
+  transition: transform 0.2s ease;
+}
+
+dd a::after {
+  content: "학습하기 →";
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--sass-pink);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.2s ease;
+  margin-left: auto;
+}
+
+/* 링크 호버 상태 */
+dd a:hover {
+  background-color: var(--sass-pink-light);
+  border-color: var(--sass-pink-border);
+  color: var(--sass-pink-dark);
+  padding-left: 22px;
+}
+
+dd a:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* href가 비어있는 항목(준비중) 자동 스타일링 */
+dd a[href=""] {
+  background-color: #f1f5f9;
+  color: var(--text-muted);
+  cursor: not-allowed;
+  border: 1px dashed #cbd5e1;
+}
+
+dd a[href=""]::before {
+  content: "🚧";
+}
+
+dd a[href=""]::after {
+  content: "준비중";
+  opacity: 1;
+  transform: none;
+  color: var(--text-muted);
+  background-color: #e2e8f0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+dd a[href=""]:hover {
+  padding-left: 18px;
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   5. Footer
+   ========================================= */
+footer {
+  background-color: #ffffff;
+  border-top: 1px solid var(--border-color);
+  padding: 28px 20px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+footer p {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   6. Responsive (Mobile)
+   ========================================= */
+@media (max-width: 640px) {
+  header {
+    padding: 48px 16px 60px;
+  }
+
+  main {
+    margin-top: -28px;
+    padding: 0 14px;
+    gap: 18px;
+  }
+
+  dl {
+    padding: 20px 18px;
+  }
+
+  dt {
+    font-size: 1.05rem;
+    align-items: flex-start;
+  }
+
+  dd a {
+    padding: 12px 14px;
+    font-size: 0.92rem;
+  }
+
+  dd a::after {
+    display: none; /* 모바일에서는 텍스트 공간 확보를 위해 화살표 숨김 */
+  }
+
+  dd a[href=""]::after {
+    display: inline-block; /* '준비중' 뱃지는 유지 */
+  }
+}
